@@ -1,0 +1,519 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Visual Dekoratif - Latar Belakang */
+.decorative-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 173, 181, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+}
+
+/* Visual Dekoratif - Elemen Geometris Minimalis */
+.geometric-lines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.geometric-lines::before,
+.geometric-lines::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 3px solid rgba(0, 173, 181, 0.5);
+    border-radius: 15px;
+}
+
+.geometric-lines::before {
+    top: 10%;
+    left: 5%;
+    animation: moveLines 10s infinite alternate;
+}
+
+.geometric-lines::after {
+    bottom: 10%;
+    right: 5%;
+    animation: moveLines 8s infinite alternate-reverse;
+}
+
+/* Lingkaran */
+.geometric-lines .circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 3px solid rgba(0, 173, 181, 0.5);
+    border-radius: 50%;
+    top: 10%;
+    right: 50%;
+    transform: translateX(-50%);
+    animation: moveLines 12s infinite alternate;
+}
+
+/* Persegi Panjang */
+.geometric-lines .rectangle {
+    position: absolute;
+    width: 350px;
+    height: 80px;
+    border: 3px solid rgba(0, 173, 181, 0.5);
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: moveLines 15s infinite alternate-reverse;
+}
+
+/* Segitiga */
+.geometric-lines .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 200px solid rgba(0, 173, 181, 0.5);
+    top: 5%;
+    right: 10%;
+    animation: moveLines 12s infinite alternate-reverse;
+}
+
+/* Bintang */
+.geometric-lines .star {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0, 173, 181, 0.5);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    bottom: 10%;
+    left: 10%;
+    animation: moveLines 15s infinite alternate;
+}
+
+/* Animasi Geometris */
+@keyframes moveLines {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+/* Navigasi */
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: #4e4e50;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #00adb5;
+}
+
+/* Kotak Data Diri */
+.profile-box {
+    background: #16213e;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.3);
+}
+
+.profile-box img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #00adb5;
+    margin-bottom: 15px;
+}
+
+.profile-box h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.profile-box p {
+    font-size: 16px;
+    color: #eeeeee;
+    margin-bottom: 20px;
+}
+
+/* Link ke Halaman Lain */
+.links a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #393e46;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background 0.3s;
+}
+
+.links a:hover {
+    background-color: #00adb5;
+}
+
+/* Quote Box */
+.quote-box {
+    display: flex; /* Gunakan Flexbox untuk kontrol lebih baik */
+    align-items: center; /* Rata tengah vertikal */
+    justify-content: center; /* Rata tengah horizontal */
+    text-align: center; /* Teks dalam elemen juga rata tengah */
+    height: 80px; /* Sesuaikan tinggi agar kotak tidak terlalu besar */
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #0f3460;
+    border-left: 4px solid #00adb5;
+    border-radius: 8px;
+    font-style: italic;
+    color: #eeeeee;
+    font-size: 14px;
+    max-width: 355px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Kotak Biodata */
+.about-box {
+    background: #16213e;
+    padding: 50px;
+    border-radius: 15px;
+    text-align: left;
+    max-width: 450px; 
+    margin: 0 auto; 
+    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-box h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #00adb5;
+}
+
+.about-box p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #eeeeee;
+}
+
+.about-box p strong {
+    color: #00adb5;
+}
+
+.about-box .divider {
+    border-top: 1px solid #00adb5;
+    margin: 12px 0;
+    opacity: 0.5;
+}
+
+.about-box::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 173, 181, 0.2);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Rata Tengah Atas-Bawah */
+main {
+    display: flex;
+    height: 100vh; /* Agar konten di tengah penuh layar */
+    align-items: center; /* Rata tengah vertikal */
+    justify-content: center; /* Rata tengah horizontal */
+}
+
+/* Proyek */
+.projects-title {
+    position: absolute; /* Posisi bebas */
+    top: 130px;          /* Jarak dari atas */
+    left: 50%;          /* Mulai dari tengah */
+    transform: translateX(-50%); /* Geser ke kiri agar benar-benar di tengah */
+    
+    color: #00adb5;
+    font-size: 48px;
+    font-weight: bold;
+    background-color: rgba(15, 27, 61, 0.8); /* Kotak berwarna */
+    border: 3px solid #00adb5; /* Garis tepi */
+    border-radius: 12px; /* Sudut melengkung */
+    padding: 10px 40px; /* Ruang di dalam kotak */
+    width: fit-content;  /* Ukuran kotak mengikuti panjang teks */
+    box-shadow: 0 4px 15px rgba(0, 173, 181, 0.5); /* Bayangan */
+}
+
+/* Penyesuaian Container */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 100px; /* Menyesuaikan posisi agar tidak menabrak judul */
+}
+
+/* Kartu Proyek */
+.project-card {
+    background: #0f1b3d;
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 40px rgba(0, 173, 181, 0.5);
+}
+
+/* Judul Kartu */
+.project-card h2 {
+    color: #00adb5;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+/* Deskripsi Kartu */
+.project-card p {
+    color: #eeeeee;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* Tombol */
+.project-card .btn {
+    background: #00adb5;
+    color: #16213e;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.project-card .btn:hover {
+    background: #00fff5;
+}
+
+/*Blog*/
+/* Kotak Judul "My Blog" */
+.title-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px; /* Jarak pas dari atas */
+    margin-bottom: 40px; /* Jarak dari konten */
+}
+
+.blog-title {
+    background-color: #0f1b3d;
+    color: #00adb5;
+    border: 3px solid #00adb5;
+    border-radius: 12px;
+    padding: 10px 40px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Penyesuaian Container */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 0; 
+}
+
+/* Kartu Blog */
+/* Kotak Judul "My Blog" */
+.title-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 130px; /* Posisi lebih ke bawah */
+    margin-bottom: 40px; 
+}
+
+.blog-title {
+    background-color: #0f1b3d;
+    color: #00adb5;
+    border: 3px solid #00adb5;
+    border-radius: 12px;
+    padding: 10px 40px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Penyesuaian Container */
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 0; 
+}
+
+/* Kartu Blog */
+.blog-card {
+    background: #0f1b3d;
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 40px rgba(0, 173, 181, 0.5);
+}
+
+.blog-card h2 {
+    color: #00adb5;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.blog-card p {
+    color: #eeeeee;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.blog-card .btn {
+    background: #00adb5;
+    color: #16213e;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.blog-card .btn:hover {
+    background: #00fff5;
+}
+
+/*contact*/
+/*contact*/
+/* Perbaikan Elemen Latar (Kemungkinan Mengganggu) */
+.decorative-background,
+.geometric-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Pastikan elemen ini tidak memengaruhi posisi elemen utama */
+}
+
+/* Container untuk judul 'Contact' */
+.title-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 90px; /* Sesuaikan dengan tinggi judul 'My Blog' */
+    margin-bottom: 40px;
+}
+
+/* Judul 'Contact' */
+.contact-title {
+    background-color: #0f1b3d;
+    color: #00adb5;
+    border: 3px solid #00adb5;
+    border-radius: 12px;
+    padding: 10px 40px;
+    font-size: 48px;
+    font-weight: bold;
+    position: relative; /* Supaya stabil */
+    z-index: 2; /* Pastikan tetap terlihat */
+}
+
+/* Kotak Kontak */
+.contact-box {
+    background: #16213e;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 173, 181, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Periksa jika 'main' atau 'body' punya margin ekstra */
+main {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container Ikon */
+.icon-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Ikon */
+.icon-container img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.icon-container img:hover {
+    transform: scale(1.1);
+}
